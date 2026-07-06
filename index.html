@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Gallery</title>
+
+<style>
+body{
+    text-align:center;
+    font-family:Arial;
+}
+
+img{
+    width:200px;
+    height:150px;
+    margin:10px;
+    cursor:pointer;
+    border-radius:10px;
+}
+
+#bigImage{
+    width:400px;
+    height:300px;
+    display:block;
+    margin:20px auto;
+}
+</style>
+</head>
+<body>
+
+<h2>Image Gallery</h2>
+
+<img id="bigImage" src="https://picsum.photos/id/1015/400/300">
+
+<button onclick="prev()">Previous</button>
+<button onclick="next()">Next</button>
+
+<script>
+let images = [
+"https://picsum.photos/id/1015/400/300",
+"https://picsum.photos/id/1016/400/300",
+"https://picsum.photos/id/1018/400/300"
+];
+
+let index = 0;
+
+function next(){
+    index = (index + 1) % images.length;
+    document.getElementById("bigImage").src = images[index];
+}
+
+function prev(){
+    index = (index - 1 + images.length) % images.length;
+    document.getElementById("bigImage").src = images[index];
+}
+</script>
+
+</body>
+</html>
